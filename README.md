@@ -111,7 +111,7 @@ deployment:
 ### Check Wallet Balance
 
 ```
-What's my USDT balance on Spheron?
+What's my CST balance on Spheron?
 ```
 
 ### Get Deployment URLs
