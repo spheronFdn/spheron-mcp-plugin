@@ -19,7 +19,7 @@ This MCP (Model Context Protocol) plugin integrates with the Spheron Protocol SD
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/spheron-mcp-plugin.git
+   git clone https://github.com/saurrx/spheron-mcp-plugin.git
    cd spheron-mcp-plugin
    ```
 
