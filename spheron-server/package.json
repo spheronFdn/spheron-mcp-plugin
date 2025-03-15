@@ -1,11 +1,12 @@
 {
-  "name": "Spheron-MCP",
+  "name": "spheron-mcp",
   "version": "0.1.0",
   "description": "The MCP server to interact with Spheron Network",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "bin": {
-    "Spheron-MCP": "./build/index.js"
+    "spheron-mcp": "./build/index.js"
   },
   "files": [
     "build"
@@ -20,6 +21,7 @@
     "@modelcontextprotocol/sdk": "0.6.0",
     "@spheron/protocol-sdk": "^1.3.6-staging.2",
     "axios": "^1.8.2",
+    "dotenv": "^16.4.7",
     "fs-extra": "^11.3.0"
   },
   "devDependencies": {

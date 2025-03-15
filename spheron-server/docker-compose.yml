@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  spheron-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spheronfdn/spheron-mcp:latest
+    environment:
+      - SPHERON_PRIVATE_KEY=${SPHERON_PRIVATE_KEY}
+      - SPHERON_NETWORK=${SPHERON_NETWORK:-testnet}
+      - PROVIDER_PROXY_URL=${PROVIDER_PROXY_URL:-https://provider-proxy.spheron.network}
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped 

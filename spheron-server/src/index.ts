@@ -22,7 +22,8 @@ import {
 import { SpheronSDK } from "@spheron/protocol-sdk";
 import pkg from 'fs-extra';
 const { readFile } = pkg;
-import * as path from 'path';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Environment variables for Spheron SDK
 const SPHERON_PRIVATE_KEY = process.env.SPHERON_PRIVATE_KEY;

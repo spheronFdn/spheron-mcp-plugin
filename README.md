@@ -17,39 +17,233 @@ This MCP (Model Context Protocol) plugin integrates with the Spheron Protocol SD
 
 ## Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/saurrx/spheron-mcp-plugin.git
-   cd spheron-mcp-plugin
-   ```
+### 1. Clone the Repository
 
-2. Install dependencies and build the project:
-   ```bash
-   cd spheron-server
-   npm install
-   npm run build
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/spheron-mcp-plugin.git
 
-3. Configure the MCP settings:
-   - Edit `~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`
-   - Add the following configuration:
-   ```json
-   {
-     "mcpServers": {
-       "spheron": {
-         "command": "node",
-         "args": ["/path/to/spheron-mcp-plugin/spheron-server/build/index.js"],
-         "env": {
-           "SPHERON_PRIVATE_KEY": "your-private-key",
-           "SPHERON_NETWORK": "testnet",
-           "PROVIDER_PROXY_URL": "https://provider-proxy.spheron.network"
-         },
-         "disabled": false,
-         "autoApprove": []
-       }
-     }
-   }
-   ```
+# Navigate to the project directory
+cd spheron-mcp-plugin
+```
+
+### 2. Set Up Node.js Version
+
+#### Using nvm (recommended)
+
+```bash
+# If you don't have nvm installed, install it first:
+# For macOS/Linux:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# or
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# For Windows (using Windows Subsystem for Linux or Git Bash):
+# Follow instructions at https://github.com/nvm-sh/nvm
+
+# Restart your terminal or run:
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Use the project's Node.js version (defined in .nvmrc)
+nvm use
+
+# If you get an error that the version isn't installed:
+nvm install
+nvm use
+```
+
+#### Without nvm
+
+If you're not using nvm, ensure your system Node.js version is 16.0.0 or higher:
+
+```bash
+# Check your Node.js version
+node -v
+
+# If it's below 16.0.0, download and install from nodejs.org
+# https://nodejs.org/en/download/
+```
+
+### 3. Install Dependencies and Build
+
+```bash
+# Navigate to the server directory
+cd spheron-server
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Verify the build was successful
+ls -la build
+```
+
+The build process will:
+
+1. Compile TypeScript to JavaScript
+2. Make the main file executable
+3. Run the Node.js version check script
+
+## Configuration
+
+### VS Code Configuration
+
+1. Locate or create the MCP settings file:
+
+```bash
+# For Linux:
+mkdir -p ~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/
+touch ~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+
+# For macOS:
+mkdir -p ~/Library/Application\ Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/
+touch ~/Library/Application\ Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+
+# For Windows:
+# Create the file at %APPDATA%\Code\User\globalStorage\saoudrizwan.claude-dev\settings\cline_mcp_settings.json
+```
+
+2. Edit the settings file with your configuration:
+
+```bash
+# Open the file in your preferred editor
+# For example:
+nano ~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+```
+
+3. Add the following configuration (adjust paths and keys as needed):
+
+```json
+{
+  "mcpServers": {
+    "spheron": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/spheron-mcp-plugin/spheron-server/build/index.js"
+      ],
+      "env": {
+        "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
+        "SPHERON_NETWORK": "testnet",
+        "PROVIDER_PROXY_URL": "https://provider-proxy.spheron.network"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+4. Save the file and restart VS Code
+
+### Claude Desktop Configuration
+
+1. Locate or create the Claude Desktop configuration file:
+
+```bash
+# For macOS:
+mkdir -p ~/Library/Application\ Support/Claude/
+touch ~/Library/Application\ Support/Claude/claude_desktop_config.json
+
+# For Windows:
+# Create the file at %APPDATA%\Claude\claude_desktop_config.json
+
+# For Linux:
+mkdir -p ~/.config/Claude/
+touch ~/.config/Claude/claude_desktop_config.json
+```
+
+2. Edit the configuration file:
+
+```bash
+# Open the file in your preferred editor
+# For example:
+nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+3. Add the following configuration (adjust paths and keys as needed):
+
+### Docker Configuration
+
+```json
+{
+  "mcpServers": {
+    "spheron": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "SPHERON_PRIVATE_KEY",
+        "-e",
+        "SPHERON_NETWORK",
+        "-e",
+        "PROVIDER_PROXY_URL",
+        "spheronfdn/spheron-mcp:latest"
+      ],
+      "env": {
+        "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
+        "SPHERON_NETWORK": "testnet",
+        "PROVIDER_PROXY_URL": "https://provider-proxy.spheron.network"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+### Node Configuration
+
+```json
+{
+  "mcpServers": {
+    "spheron": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/spheron-mcp-plugin/spheron-server/build/index.js"
+      ],
+      "env": {
+        "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
+        "SPHERON_NETWORK": "testnet",
+        "PROVIDER_PROXY_URL": "https://provider-proxy.spheron.network"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+4. Save the file and restart Claude Desktop
+
+### Cursor Configuration
+
+1. Locate or create the Cursor configuration file:
+
+```bash
+# For macOS:
+mkdir -p ~/Library/Application\ Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/
+touch ~/Library/Application\ Support/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+
+# For Windows:
+# Create the file at %APPDATA%\Cursor\User\globalStorage\saoudrizwan.claude-dev\settings\cline_mcp_settings.json
+
+# For Linux:
+mkdir -p ~/.config/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/
+touch ~/.config/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+```
+
+2. Edit the configuration file:
+
+```bash
+# Open the file in your preferred editor
+# For example:
+nano ~/.config/Cursor/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+```
 
 ## Usage
 
@@ -125,23 +319,6 @@ Show me the URLs for my deployment with lease ID 12345
 ```
 Get details for lease ID 12345
 ```
-
-## Testing
-
-To test the MCP plugin, run the included test scripts:
-
-```bash
-# Main test script
-node test-spheron-mcp.js
-
-# Additional test scripts
-node simple-test.js
-node fs-test.js
-node sdk-test.js
-node list-tools-test.js
-```
-
-These scripts test different aspects of the plugin functionality.
 
 ## Environment Variables
 
