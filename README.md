@@ -21,7 +21,7 @@ This MCP (Model Context Protocol) plugin integrates with the Spheron Protocol SD
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/spheron-mcp-plugin.git
+git clone https://github.com/spheronFdn/spheron-mcp-plugin.git
 
 # Navigate to the project directory
 cd spheron-mcp-plugin
@@ -114,7 +114,14 @@ touch ~/Library/Application\ Support/Code/User/globalStorage/saoudrizwan.claude-
 nano ~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
 ```
 
-3. Add the following configuration (adjust paths and keys as needed):
+3. Find the absolute path to the spheron-server directory:
+
+```bash
+# For example:
+pwd
+```
+
+4. Add the following configuration (adjust paths and keys as needed):
 
 ```json
 {
@@ -127,7 +134,7 @@ nano ~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
-        "PROVIDER_PROXY_URL": "https://provider-proxy.spheron.network"
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
       },
       "disabled": false,
       "autoApprove": []
@@ -136,7 +143,38 @@ nano ~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp
 }
 ```
 
-4. Save the file and restart VS Code
+5. Or use the Docker configuration:
+
+```json
+{
+  "mcpServers": {
+    "spheron": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "SPHERON_PRIVATE_KEY",
+        "-e",
+        "SPHERON_NETWORK",
+        "-e",
+        "PROVIDER_PROXY_URL",
+        "spheronfdn/spheron-mcp:latest"
+      ],
+      "env": {
+        "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
+        "SPHERON_NETWORK": "testnet",
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+6. Save the file and restart VS Code
 
 ### Claude Desktop Configuration
 
@@ -187,7 +225,7 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
-        "PROVIDER_PROXY_URL": "https://provider-proxy.spheron.network"
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
       },
       "disabled": false,
       "autoApprove": []
@@ -209,7 +247,7 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
-        "PROVIDER_PROXY_URL": "https://provider-proxy.spheron.network"
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
       },
       "disabled": false,
       "autoApprove": []
