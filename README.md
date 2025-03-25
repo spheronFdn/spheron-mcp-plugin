@@ -13,7 +13,6 @@ This MCP (Model Context Protocol) plugin integrates with the Spheron Protocol SD
 - **Fetch Wallet Balance**: Check your wallet balance for different tokens
 - **Fetch Deployment URLs**: Get URLs for your active deployments
 - **Fetch Lease ID Details**: Get detailed information about a lease
-- **Deploy Custom YAML Files**: Deploy using custom YAML configurations
 
 ## Installation
 
@@ -160,12 +159,15 @@ pwd
         "SPHERON_NETWORK",
         "-e",
         "PROVIDER_PROXY_URL",
-        "spheronfdn/spheron-mcp:latest"
+        "-e",
+        "YAML_API_URL",
+        "saurrx/spheron-mcp-v2:latest"
       ],
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
-        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz",
+        "YAML_API_URL": "http://provider.cpu.gpufarm.xyz:32692/generate"
       },
       "disabled": false,
       "autoApprove": []
@@ -220,12 +222,15 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
         "SPHERON_NETWORK",
         "-e",
         "PROVIDER_PROXY_URL",
-        "spheronfdn/spheron-mcp:latest"
+        "-e",
+        "YAML_API_URL",
+        "saurrx/spheron-mcp-v2:latest"
       ],
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
-        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz",
+        "YAML_API_URL": "http://provider.cpu.gpufarm.xyz:32692/generate"
       },
       "disabled": false,
       "autoApprove": []
@@ -363,6 +368,7 @@ Get details for lease ID 12345
 - `SPHERON_PRIVATE_KEY`: Your Spheron private key for authentication
 - `SPHERON_NETWORK`: Network to use (testnet or mainnet)
 - `PROVIDER_PROXY_URL`: URL for the provider proxy server
+- `YAML_API_URL`: URL for the YAML generation API service
 
 ## License
 
