@@ -167,7 +167,7 @@ pwd
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
         "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz",
-        "YAML_API_URL": "http://provider.cpu.gpufarm.xyz:32692/generate"
+        "YAML_API_URL": "http://149.56.15.95:8080/generate"
       },
       "disabled": false,
       "autoApprove": []
@@ -230,7 +230,7 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
         "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz",
-        "YAML_API_URL": "http://provider.cpu.gpufarm.xyz:32692/generate"
+        "YAML_API_URL": "http://149.56.15.95:8080/generate"
       },
       "disabled": false,
       "autoApprove": []
