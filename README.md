@@ -161,7 +161,7 @@ pwd
         "PROVIDER_PROXY_URL",
         "-e",
         "YAML_API_URL",
-        "saurrx/spheron-mcp-v2:latest"
+        "saurrx/spheron-mcp:latest"
       ],
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
@@ -224,7 +224,7 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
         "PROVIDER_PROXY_URL",
         "-e",
         "YAML_API_URL",
-        "saurrx/spheron-mcp-v2:latest"
+        "saurrx/spheron-mcp:latest"
       ],
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
