@@ -1,4 +1,4 @@
-# Spheron Protocol MCP Plugin
+# Spheron Network MCP Plugin
 
 This MCP (Model Context Protocol) plugin integrates with the Spheron Protocol SDK to provide compute deployment and management capabilities directly through Claude.
 
@@ -113,7 +113,7 @@ touch ~/Library/Application\ Support/Code/User/globalStorage/saoudrizwan.claude-
 nano ~/.config/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
 ```
 
-3. Find the absolute path to the spheron-server directory:
+3. Find the absolute path to the mcp-server directory:
 
 ```bash
 # For example:
@@ -128,12 +128,13 @@ pwd
     "spheron": {
       "command": "node",
       "args": [
-        "/absolute/path/to/spheron-mcp-plugin/spheron-server/build/index.js"
+        "/absolute/path/to/spheron-mcp-plugin/mcp-server/build/index.js"
       ],
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
-        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz",
+        "YAML_API_URL": "http://149.56.15.95:8080/generate"
       },
       "disabled": false,
       "autoApprove": []
@@ -241,18 +242,28 @@ nano ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 ### Node Configuration
 
+Find the absolute path to the mcp-server directory:
+
+```bash
+# For example:
+pwd
+```
+
+Add the following configuration:
+
 ```json
 {
   "mcpServers": {
     "spheron": {
       "command": "node",
       "args": [
-        "/absolute/path/to/spheron-mcp-plugin/spheron-server/build/index.js"
+        "/absolute/path/to/spheron-mcp-plugin/mcp-server/build/index.js"
       ],
       "env": {
         "SPHERON_PRIVATE_KEY": "your-spheron-private-key",
         "SPHERON_NETWORK": "testnet",
-        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz"
+        "PROVIDER_PROXY_URL": "https://provider-proxy.sphn.xyz",
+        "YAML_API_URL": "http://149.56.15.95:8080/generate"
       },
       "disabled": false,
       "autoApprove": []
@@ -343,6 +354,12 @@ deployment:
     westcoast:
       profile: py-cuda
       count: 1
+```
+
+Or say:
+
+```
+Deploy this jupyter notebook on Spheron
 ```
 
 ### Check Wallet Balance

@@ -1,12 +1,12 @@
 {
-  "name": "spheron-mcp",
-  "version": "0.1.0",
+  "name": "spheron-mcp-plugin",
+  "version": "0.1.1",
   "description": "The MCP server to interact with Spheron Network",
   "private": true,
   "license": "MIT",
   "type": "module",
   "bin": {
-    "spheron-mcp": "./build/index.js"
+    "spheron-mcp-plugin": "./build/index.js"
   },
   "files": [
     "build"

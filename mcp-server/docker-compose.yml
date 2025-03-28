@@ -9,8 +9,8 @@ services:
     environment:
       - SPHERON_PRIVATE_KEY=${SPHERON_PRIVATE_KEY}
       - SPHERON_NETWORK=${SPHERON_NETWORK:-testnet}
-      - PROVIDER_PROXY_URL=${PROVIDER_PROXY_URL:-https://provider-proxy.spheron.network}
-      - YAML_API_URL=${YAML_API_URL:-http://provider.cpu.gpufarm.xyz:32692/generate}
+      - PROVIDER_PROXY_URL=${PROVIDER_PROXY_URL:-https://provider-proxy.sphn.xyz}
+      - YAML_API_URL=${YAML_API_URL:-http://149.56.15.95:8080/generate}
     volumes:
       - .:/app
       - /app/node_modules
